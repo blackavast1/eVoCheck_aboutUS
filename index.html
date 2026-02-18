@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eVo Check — умный анализ объявлений</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf2 100%);
+            color: #1a2639;
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 48px;
+            box-shadow: 0 20px 40px rgba(0, 10, 30, 0.2), 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+            background: linear-gradient(145deg, #0b1e33, #2c3e6e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #4a5b7a;
+            margin-bottom: 40px;
+            border-left: 4px solid #3b6eff;
+            padding-left: 20px;
+        }
+
+        .content-block {
+            margin: 40px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #2e4b8f;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(59, 110, 255, 0.2);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 28px;
+            padding: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 28px rgba(0, 30, 60, 0.08);
+        }
+
+        .feature-card .emoji {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #101d33;
+        }
+
+        .feature-card p {
+            color: #3e4f6b;
+            font-size: 0.95rem;
+        }
+
+        .instruction-steps {
+            background: #f0f4fe;
+            border-radius: 36px;
+            padding: 36px;
+            margin: 40px 0;
+            border: 1px solid #cddfff;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .step-number {
+            background: #1a2c4e;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 6px 12px rgba(20, 60, 140, 0.2);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content strong {
+            font-size: 1.1rem;
+            color: #10233e;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            color: #2b3b58;
+        }
+
+        .donation-box {
+            background: #1b2a44;
+            border-radius: 32px;
+            padding: 32px;
+            color: white;
+            margin-top: 40px;
+            text-align: center;
+            border: 1px solid #5b7bbf;
+        }
+
+        .donation-numbers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 24px 0 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 28px;
+            letter-spacing: 1px;
+        }
+
+        .donation-numbers span {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 18px;
+            border-radius: 60px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #a0b8d4, transparent);
+            margin: 40px 0;
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #627393;
+            background: #eaeef6;
+            padding: 20px 28px;
+            border-radius: 28px;
+            margin-top: 30px;
+            border-left: 4px solid #1a2c4e;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #4f6182;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 24px; border-radius: 32px; }
+            h1 { font-size: 2rem; }
+            .instruction-steps { padding: 24px; }
+            .step { flex-direction: column; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Содержание (как в книге) -->
+        <div style="display: flex; gap: 32px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap;">
+            <span style="font-weight: 600; color: #1f3a6b;">📋 Содержание</span>
+            <span style="color: #3c5480;">1. Знакомство и цели</span>
+            <span style="color: #3c5480;">2. Инструкция</span>
+        </div>
+
+        <!-- Заголовок -->
+        <div style="text-align: center;">
+            <span class="badge">бета-версия</span>
+            <h1>eVo Check</h1>
+            <div class="subhead">Ваш личный ИИ-детектив для безопасных покупок</div>
+        </div>
+
+        <!-- 1. Знакомство -->
+        <div class="content-block">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;">👋 Всем привет!</h2>
+            <p style="font-size: 1.1rem; color: #1f2f48; margin-bottom: 20px;">
+                Если вы открыли эту страницу, значит, у вас возник логичный вопрос: <strong>зачем вообще был создан eVo Check и чем он может быть полезен?</strong>
+            </p>
+            <p style="margin-bottom: 24px;">
+                <strong>eVo Check</strong> — это интеллектуальный сервис для анализа объявлений с открытых онлайн-площадок. 
+                Мы создали его, чтобы помогать людям принимать более взвешенные решения при покупке товаров. 
+                Сегодня сложно отличить добросовестного продавца от проблемного, а выгодное предложение — от рискованного. 
+                Наша цель — помочь покупателю <strong>минимизировать риски</strong> и избежать неприятных ситуаций.
+            </p>
+            <p style="background: #e0e9f9; padding: 20px; border-radius: 24px;">
+                В основе сервиса — <strong>ИИ-агент</strong>, обученный анализировать объявления, продавцов и сопутствующую информацию. 
+                Он не заменяет здравый смысл, но помогает обратить внимание на важные детали, которые легко упустить.
+            </p>
+        </div>
+
+        <!-- Что умеет -->
+        <h2 style="font-size: 1.8rem; margin: 40px 0 20px;">⚡ Что умеет eVo Check</h2>
+        <div class="features-grid">
+            <div class="feature-card"><div class="emoji">🔍</div><h3>Анализ фото</h3><p>Выявляет несоответствия, подозрительные детали и признаки обмана.</p></div>
+            <div class="feature-card"><div class="emoji">👤</div><h3>Профили продавцов</h3><p>Оценивает историю, активность, скрытые риски и поведение.</p></div>
+            <div class="feature-card"><div class="emoji">🧩</div><h3>Совместимость</h3><p>Для электроники и техники — подскажет, подходят ли детали друг к другу.</p></div>
+            <div class="feature-card"><div class="emoji">💬</div><h3>Помощь в общении</h3><p>На что обратить внимание, как задать правильные вопросы.</p></div>
+            <div class="feature-card"><div class="emoji">✅</div><h3>Рекомендации</h3><p>Что стоит уточнить, проверить или перепроверить перед покупкой.</p></div>
+            <div class="feature-card"><div class="emoji">❓</div><h3>Ключевые вопросы</h3><p>Помогает сформулировать действительно важные вопросы продавцу.</p></div>
+        </div>
+        <p style="color: #3b4d6b; margin-bottom: 20px;">И это не всё — функциональность постоянно расширяется и дорабатывается.</p>
+
+        <!-- Важно -->
+        <div class="disclaimer">
+            <strong>Важно понимать:</strong> eVo Check носит исключительно рекомендательный характер. 
+            Мы не гарантируем безопасность сделки и не принимаем решений за пользователя. 
+            Все данные вводятся пользователем самостоятельно, и окончательное решение всегда остаётся за вами.
+        </div>
+
+        <p style="margin-top: 20px; font-style: italic; color: #41587b;">
+            Проект развивается за счёт энтузиазма автора, идей сообщества и постоянного улучшения алгоритмов.
+        </p>
+
+        <hr>
+
+        <!-- 2. Инструкция -->
+        <h2 style="font-size: 2rem; margin-bottom: 20px;">📱 Инструкция по использованию</h2>
+        
+        <div class="instruction-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content"><strong>Копируй</strong><p>Нашёл интересное объявление? Скопируй ссылку.</p></div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content"><strong>Вставляй</strong><p>Открой расширение eVo Check и вставь ссылку в поле.</p></div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content"><strong>Запускай</strong><p>Нажми «Проверить объявление» — ИИ-агент приступает к работе.</p></div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content"><strong>Изучай</strong><p>Немного терпения — искусственный интеллект готовит подробный разбор.</p></div>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content"><strong>Анализируй</strong><p>Мы подсветим плюсы и минусы, но финальное решение всегда за тобой.</p></div>
+            </div>
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content"><strong>Уточняй</strong><p>Задай вопрос боту в окошке над результатами. В блоке «Полный анализ» — аналоги с маркетплейсов.</p></div>
+            </div>
+        </div>
+
+        <!-- Донат -->
+        <div class="donation-box">
+            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 8px;">☕ Поддержать проект</h3>
+            <p style="opacity: 0.8; margin-bottom: 20px;">Развивается на чистом энтузиазме. Любая помощь — вдохновение.</p>
+            <div class="donation-numbers">
+                <span>2200 7008 4351 5221</span>
+                <span>2200 3005 6515 7714</span>
+            </div>
+            <p style="font-size: 0.9rem; opacity: 0.7;">Спасибо, что вы с нами 🤝</p>
+        </div>
+
+        <footer>
+            eVo Check — покупай с умом, без лишних рисков.
+        </footer>
+    </div>
+</body>
+</html>
