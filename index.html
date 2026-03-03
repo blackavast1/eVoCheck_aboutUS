@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -12,24 +13,21 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf2 100%);
-            color: #1a2639;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
             line-height: 1.5;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 24px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 48px;
-            box-shadow: 0 20px 40px rgba(0, 10, 30, 0.2), 0 4px 12px rgba(0, 0, 0, 0.05);
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px -12px rgba(0, 10, 30, 0.15), 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 48px 56px;
         }
 
         h1, h2, h3 {
@@ -38,96 +36,109 @@
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 8px;
-            background: linear-gradient(145deg, #0b1e33, #2c3e6e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #0f172a;
+            line-height: 1.1;
         }
 
         .subhead {
-            font-size: 1.2rem;
-            color: #4a5b7a;
+            font-size: 1.25rem;
+            color: #475569;
             margin-bottom: 40px;
-            border-left: 4px solid #3b6eff;
+            border-left: 4px solid #2563eb;
             padding-left: 20px;
+            font-weight: 400;
         }
 
         .content-block {
-            margin: 40px 0;
+            margin: 48px 0;
         }
 
         .badge {
             display: inline-block;
             background: #eef2ff;
-            color: #2e4b8f;
-            font-weight: 500;
-            font-size: 0.9rem;
+            color: #1e3a8a;
+            font-weight: 600;
+            font-size: 0.85rem;
             padding: 6px 16px;
-            border-radius: 100px;
+            border-radius: 40px;
             margin-bottom: 16px;
-            border: 1px solid rgba(59, 110, 255, 0.2);
+            border: 1px solid #b9d0f8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+            gap: 24px;
+            margin: 32px 0;
         }
 
         .feature-card {
-            background: white;
+            background: #f8fafc;
             border-radius: 28px;
-            padding: 24px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-            border: 1px solid rgba(0,0,0,0.03);
-            transition: transform 0.2s ease;
+            padding: 28px 24px;
+            border: 1px solid #e2e8f0;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 28px rgba(0, 30, 60, 0.08);
-        }
-
-        .feature-card .emoji {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+            border-color: #b1c8f0;
+            box-shadow: 0 12px 24px -12px rgba(0, 55, 120, 0.2);
         }
 
         .feature-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: #101d33;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+            font-weight: 600;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .feature-card h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.4em;
+            height: 0.7em;
+            width: 4px;
+            background: #2563eb;
+            border-radius: 2px;
         }
 
         .feature-card p {
-            color: #3e4f6b;
+            color: #334155;
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .instruction-steps {
-            background: #f0f4fe;
+            background: #f1f5f9;
             border-radius: 36px;
-            padding: 36px;
-            margin: 40px 0;
-            border: 1px solid #cddfff;
+            padding: 40px 44px;
+            margin: 48px 0;
+            border: 1px solid #d9e2ef;
         }
 
         .step {
             display: flex;
             align-items: flex-start;
-            gap: 18px;
+            gap: 24px;
             margin-bottom: 28px;
         }
 
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
         .step-number {
-            background: #1a2c4e;
+            background: #1e293b;
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 30px;
             display: flex;
             align-items: center;
@@ -135,7 +146,7 @@
             font-weight: 700;
             font-size: 1.2rem;
             flex-shrink: 0;
-            box-shadow: 0 6px 12px rgba(20, 60, 140, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 20, 40, 0.15);
         }
 
         .step-content {
@@ -143,86 +154,119 @@
         }
 
         .step-content strong {
-            font-size: 1.1rem;
-            color: #10233e;
+            font-size: 1.2rem;
+            color: #0f172a;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            font-weight: 600;
         }
 
         .step-content p {
-            color: #2b3b58;
+            color: #334155;
+            font-size: 1rem;
         }
 
         .donation-box {
-            background: #1b2a44;
+            background: #0f172a;
             border-radius: 32px;
-            padding: 32px;
+            padding: 40px 36px;
             color: white;
-            margin-top: 40px;
+            margin-top: 48px;
             text-align: center;
-            border: 1px solid #5b7bbf;
+            border: 1px solid #334155;
+        }
+
+        .donation-box h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .donation-numbers {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            margin: 24px 0 10px;
-            font-family: 'JetBrains Mono', monospace;
+            gap: 20px;
+            margin: 28px 0 12px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
             font-size: 1.2rem;
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 28px;
-            letter-spacing: 1px;
+            background: #1e293b;
+            padding: 20px 24px;
+            border-radius: 60px;
+            border: 1px solid #334155;
+            word-break: break-word;
         }
 
         .donation-numbers span {
-            background: rgba(255,255,255,0.1);
-            padding: 8px 18px;
-            border-radius: 60px;
-            border: 1px solid rgba(255,255,255,0.15);
+            color: #b9d0f8;
         }
 
         hr {
             border: none;
             height: 1px;
-            background: linear-gradient(to right, transparent, #a0b8d4, transparent);
-            margin: 40px 0;
+            background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+            margin: 48px 0;
         }
 
         .disclaimer {
-            font-size: 0.9rem;
-            color: #627393;
-            background: #eaeef6;
-            padding: 20px 28px;
+            font-size: 0.95rem;
+            color: #334155;
+            background: #f1f5f9;
+            padding: 24px 32px;
             border-radius: 28px;
-            margin-top: 30px;
-            border-left: 4px solid #1a2c4e;
+            margin-top: 36px;
+            border-left: 6px solid #2563eb;
+            line-height: 1.7;
+        }
+
+        .disclaimer strong {
+            color: #0f172a;
+            font-weight: 600;
         }
 
         footer {
             text-align: center;
-            margin-top: 30px;
-            color: #4f6182;
-            font-size: 0.9rem;
+            margin-top: 40px;
+            color: #4b556b;
+            font-size: 0.95rem;
+            font-weight: 400;
         }
 
-        @media (max-width: 600px) {
-            .container { padding: 24px; border-radius: 32px; }
-            h1 { font-size: 2rem; }
-            .instruction-steps { padding: 24px; }
-            .step { flex-direction: column; gap: 8px; }
+        .toc {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            font-weight: 500;
+            color: #2563eb;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+
+        .toc span {
+            color: #475569;
+            font-weight: 400;
+        }
+
+        @media (max-width: 700px) {
+            .container { padding: 32px 24px; border-radius: 32px; }
+            h1 { font-size: 2.3rem; }
+            .instruction-steps { padding: 28px 20px; }
+            .step { flex-direction: column; gap: 12px; }
+            .step-number { width: 40px; height: 40px; font-size: 1rem; }
+            .donation-numbers { font-size: 1rem; padding: 16px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Содержание (как в книге) -->
-        <div style="display: flex; gap: 32px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap;">
-            <span style="font-weight: 600; color: #1f3a6b;">📋 Содержание</span>
-            <span style="color: #3c5480;">1. Знакомство и цели</span>
-            <span style="color: #3c5480;">2. Инструкция</span>
+        <!-- Содержание (без эмодзи) -->
+        <div class="toc">
+            <span>Содержание</span>
+            <span>1.</span> Знакомство и цели
+            <span>2.</span> Инструкция
         </div>
 
         <!-- Заголовок -->
@@ -234,8 +278,8 @@
 
         <!-- 1. Знакомство -->
         <div class="content-block">
-            <h2 style="font-size: 2rem; margin-bottom: 20px;">👋 Всем привет!</h2>
-            <p style="font-size: 1.1rem; color: #1f2f48; margin-bottom: 20px;">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;">Всем привет!</h2>
+            <p style="font-size: 1.1rem; color: #1e293b; margin-bottom: 24px;">
                 Если вы открыли эту страницу, значит, у вас возник логичный вопрос: <strong>зачем вообще был создан eVo Check и чем он может быть полезен?</strong>
             </p>
             <p style="margin-bottom: 24px;">
@@ -244,23 +288,23 @@
                 Сегодня сложно отличить добросовестного продавца от проблемного, а выгодное предложение — от рискованного. 
                 Наша цель — помочь покупателю <strong>минимизировать риски</strong> и избежать неприятных ситуаций.
             </p>
-            <p style="background: #e0e9f9; padding: 20px; border-radius: 24px;">
+            <p style="background: #f1f5f9; padding: 24px; border-radius: 24px; border-left: 4px solid #2563eb;">
                 В основе сервиса — <strong>ИИ-агент</strong>, обученный анализировать объявления, продавцов и сопутствующую информацию. 
                 Он не заменяет здравый смысл, но помогает обратить внимание на важные детали, которые легко упустить.
             </p>
         </div>
 
         <!-- Что умеет -->
-        <h2 style="font-size: 1.8rem; margin: 40px 0 20px;">⚡ Что умеет eVo Check</h2>
+        <h2 style="font-size: 1.9rem; margin: 48px 0 24px;">Что умеет eVo Check</h2>
         <div class="features-grid">
-            <div class="feature-card"><div class="emoji">🔍</div><h3>Анализ фото</h3><p>Выявляет несоответствия, подозрительные детали и признаки обмана.</p></div>
-            <div class="feature-card"><div class="emoji">👤</div><h3>Профили продавцов</h3><p>Оценивает историю, активность, скрытые риски и поведение.</p></div>
-            <div class="feature-card"><div class="emoji">🧩</div><h3>Совместимость</h3><p>Для электроники и техники — подскажет, подходят ли детали друг к другу.</p></div>
-            <div class="feature-card"><div class="emoji">💬</div><h3>Помощь в общении</h3><p>На что обратить внимание, как задать правильные вопросы.</p></div>
-            <div class="feature-card"><div class="emoji">✅</div><h3>Рекомендации</h3><p>Что стоит уточнить, проверить или перепроверить перед покупкой.</p></div>
-            <div class="feature-card"><div class="emoji">❓</div><h3>Ключевые вопросы</h3><p>Помогает сформулировать действительно важные вопросы продавцу.</p></div>
+            <div class="feature-card"><h3>Анализ фото</h3><p>Выявляет несоответствия, подозрительные детали и признаки обмана.</p></div>
+            <div class="feature-card"><h3>Профили продавцов</h3><p>Оценивает историю, активность, скрытые риски и поведение.</p></div>
+            <div class="feature-card"><h3>Совместимость</h3><p>Для электроники и техники — подскажет, подходят ли детали друг к другу.</p></div>
+            <div class="feature-card"><h3>Помощь в общении</h3><p>На что обратить внимание, как задать правильные вопросы.</p></div>
+            <div class="feature-card"><h3>Рекомендации</h3><p>Что стоит уточнить, проверить или перепроверить перед покупкой.</p></div>
+            <div class="feature-card"><h3>Ключевые вопросы</h3><p>Помогает сформулировать действительно важные вопросы продавцу.</p></div>
         </div>
-        <p style="color: #3b4d6b; margin-bottom: 20px;">И это не всё — функциональность постоянно расширяется и дорабатывается.</p>
+        <p style="color: #475569; margin-top: 16px;">И это не всё — функциональность постоянно расширяется и дорабатывается.</p>
 
         <!-- Важно -->
         <div class="disclaimer">
@@ -269,14 +313,14 @@
             Все данные вводятся пользователем самостоятельно, и окончательное решение всегда остаётся за вами.
         </div>
 
-        <p style="margin-top: 20px; font-style: italic; color: #41587b;">
+        <p style="margin-top: 24px; font-style: italic; color: #475569;">
             Проект развивается за счёт энтузиазма автора, идей сообщества и постоянного улучшения алгоритмов.
         </p>
 
         <hr>
 
         <!-- 2. Инструкция -->
-        <h2 style="font-size: 2rem; margin-bottom: 20px;">📱 Инструкция по использованию</h2>
+        <h2 style="font-size: 2rem; margin-bottom: 24px;">Инструкция по использованию</h2>
         
         <div class="instruction-steps">
             <div class="step">
@@ -305,14 +349,14 @@
             </div>
         </div>
 
-        <!-- Донат -->
+        <!-- Донат (без эмодзи) -->
         <div class="donation-box">
-            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 8px;">☕ Поддержать проект</h3>
-            <p style="opacity: 0.8; margin-bottom: 20px;">Развивается на чистом энтузиазме. Любая помощь — вдохновение.</p>
+            <h3>Поддержать проект</h3>
+            <p style="opacity: 0.85; margin-bottom: 24px;">Развивается на чистом энтузиазме. Любая помощь — вдохновение.</p>
             <div class="donation-numbers">
                 <span>https://boosty.to/red_avast/donate</span>
             </div>
-            <p style="font-size: 0.9rem; opacity: 0.7;">Спасибо, что вы с нами 🤝</p>
+            <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 20px;">Спасибо, что вы с нами.</p>
         </div>
 
         <footer>
@@ -321,3 +365,4 @@
     </div>
 </body>
 </html>
+```
